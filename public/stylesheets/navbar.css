@@ -1,0 +1,21 @@
+.nav-link {
+  padding: 0.25rem 0;
+  font-weight: 700;
+  color: rgba(255, 187, 0, 0.682);
+  margin-left: 1rem;
+  border-bottom: 0.25rem solid transparent;
+}
+
+.nav-link:hover {
+  color: rgb(255, 208, 0);
+  border-bottom-color: rgba(243, 198, 0, 0.67);
+}
+
+.nav-link.active {
+  color: rgba(255, 234, 0, 0.867);
+  border-bottom-color: rgba(242, 206, 0, 0.251);
+}
+
+.aas {
+  color: rgb(255, 225, 0);
+}

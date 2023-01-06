@@ -16,7 +16,7 @@ const User = require("./models/user");
 const helmet = require("helmet");
 const mongoSanitize = require("express-mongo-sanitize");
 const userRoutes = require("./routes/users");
-const postRoutes = require("./routes/posts");
+const ideaRoutes = require("./routes/ideas");
 const reviewRoutes = require("./routes/reviews");
 
 const MongoDBStore = require("connect-mongo")(session);
@@ -141,8 +141,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/", userRoutes);
-app.use("/posts", postRoutes);
-app.use("/posts/:id/reviews", reviewRoutes);
+app.use("/ideas", ideaRoutes);
+app.use("/ideas/:id/reviews", reviewRoutes);
 
 app.get("/", (req, res) => {
   res.render("home");

@@ -1,9 +1,9 @@
 <% layout('layouts/boilerplate')%>
 <div class="row">
-  <h1 class="text-center">Edit Post</h1>
+  <h1 class="text-center">Edit Idea</h1>
   <div class="col-md-6 offset-md-3">
     <form
-      action="/posts/<%=post._id%>?_method=PUT"
+      action="/ideas/<%=idea._id%>?_method=PUT"
       method="POST"
       novalidate
       class="validated-form"
@@ -15,8 +15,8 @@
           class="form-control"
           type="text"
           id="title"
-          name="post[title]"
-          value="<%=post.title %>"
+          name="idea[title]"
+          value="<%=idea.title %>"
           required
         />
         <div class="valid-feedback">Looks good!</div>
@@ -27,8 +27,8 @@
           class="form-control"
           type="text"
           id="location"
-          name="post[location]"
-          value="<%=post.location %>"
+          name="idea[location]"
+          value="<%=idea.location %>"
           required
         />
         <div class="valid-feedback">Looks good!</div>
@@ -40,17 +40,17 @@
           class="form-control"
           type="text"
           id="description"
-          name="post[description]"
+          name="idea[description]"
           required
         >
-<%= post.description%></textarea
+<%= idea.description%></textarea
         >
         <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3">
-        <button class="btn btn-info">Update Post</button>
+        <button class="btn btn-info">Update Idea</button>
       </div>
     </form>
-    <a href="/posts/<%= post._id%>">Back To Post</a>
+    <a href="/ideas/<%= idea._id%>">Back To Idea</a>
   </div>
 </div>

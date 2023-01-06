@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const opts = { toJSON: { virtuals: true } };
 // https://res.cloudinary.com/douqbebwk/image/upload/w_300/v1600113904/YelpCamp/gxgle1ovzd2f3dgcpass.png
 
-const PostSchema = new Schema(
+const IdeaSchema = new Schema(
   {
     title: String,
     geometry: {
@@ -35,12 +35,12 @@ const PostSchema = new Schema(
   opts
 );
 
-PostSchema.virtual("properties.popUpMarkup").get(function () {
-  return `<strong><a href="/posts/${this._id}">${this.title}</a><strong>
+IdeaSchema.virtual("properties.popUpMarkup").get(function () {
+  return `<strong><a href="/ideas/${this._id}">${this.title}</a><strong>
     <p>${this.description.substring(0, 20)}...</p>`;
 });
 
-PostSchema.post("findOneAndDelete", async function (doc) {
+IdeaSchema.post("findOneAndDelete", async function (doc) {
   if (doc) {
     await Review.deleteMany({
       _id: {
@@ -50,4 +50,4 @@ PostSchema.post("findOneAndDelete", async function (doc) {
   }
 });
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model("Idea", IdeaSchema);

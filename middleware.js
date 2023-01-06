@@ -1,6 +1,6 @@
-const { postSchema, reviewSchema } = require("./schemas.js");
+const { ideaSchema, reviewSchema } = require("./schemas.js");
 const ExpressError = require("./utils/ExpressError");
-const Post = require("./models/post");
+const Idea = require("./models/idea");
 const Review = require("./models/review");
 
 module.exports.isLoggedIn = (req, res, next) => {
@@ -12,8 +12,8 @@ module.exports.isLoggedIn = (req, res, next) => {
   next();
 };
 
-module.exports.validatePost = (req, res, next) => {
-  const { error } = postSchema.validate(req.body);
+module.exports.validateIdea = (req, res, next) => {
+  const { error } = ideaSchema.validate(req.body);
   console.log(req.body);
   if (error) {
     const msg = error.details.map((el) => el.message).join(",");
@@ -25,10 +25,10 @@ module.exports.validatePost = (req, res, next) => {
 
 module.exports.isAuthor = async (req, res, next) => {
   const { id } = req.params;
-  const post = await Post.findById(id);
-  if (!post.author.equals(req.user._id)) {
+  const idea = await Idea.findById(id);
+  if (!idea.author.equals(req.user._id)) {
     req.flash("error", "You do not have permission to do that!");
-    return res.redirect(`/posts/${id}`);
+    return res.redirect(`/ideas/${id}`);
   }
   next();
 };
@@ -38,7 +38,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
   const review = await Review.findById(reviewId);
   if (!review.author.equals(req.user._id)) {
     req.flash("error", "You do not have permission to do that!");
-    return res.redirect(`/posts/${id}`);
+    return res.redirect(`/ideas/${id}`);
   }
   next();
 };

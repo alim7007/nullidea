@@ -1,9 +1,9 @@
 <% layout('layouts/boilerplate')%>
 <div class="row">
-  <h1 class="text-center">New Post</h1>
+  <h1 class="text-center">New Idea</h1>
   <div class="col-md-6 offset-md-3">
     <form
-      action="/posts"
+      action="/ideas"
       method="POST"
       novalidate
       class="validated-form"
@@ -15,7 +15,7 @@
           class="form-control"
           type="text"
           id="title"
-          name="post[title]"
+          name="idea[title]"
           required
         />
         <div class="valid-feedback">Looks good!</div>
@@ -26,7 +26,7 @@
           class="form-control"
           type="text"
           id="location"
-          name="post[location]"
+          name="idea[location]"
           required
         />
         <div class="valid-feedback">Looks good!</div>
@@ -34,7 +34,7 @@
 
       <!-- <div class="mb-3">
                 <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id="image" name="post[image]" required>
+                <input class="form-control" type="text" id="image" name="idea[image]" required>
                 <div class="valid-feedback">
                     Looks good!
                 </div>
@@ -46,16 +46,16 @@
           class="form-control"
           type="text"
           id="description"
-          name="post[description]"
+          name="idea[description]"
           required
         ></textarea>
         <div class="valid-feedback">Looks good!</div>
       </div>
       <div class="mb-3"></div>
       <div class="mb-3">
-        <button class="btn btn-success">Add Post</button>
+        <button class="btn btn-success">Add Idea</button>
       </div>
     </form>
-    <a href="/posts">All Posts</a>
+    <a href="/ideas">All Ideas</a>
   </div>
 </div>

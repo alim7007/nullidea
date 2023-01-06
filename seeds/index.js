@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const cities = require("./cities");
 const { places, descriptors } = require("./seedHelpers");
-const Post = require("../models/post");
+const Post = require("../models/idea");
 
 mongoose.connect(
   "mongodb+srv://alimkhan:krasnaya7007m@cluster1.8j4zv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",

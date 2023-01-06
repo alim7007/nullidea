@@ -1,4 +1,4 @@
-// const thisCamps = JSON.parse(posts)
+// const thisCamps = JSON.parse(ideas)
 
 mapboxgl.accessToken = mapToken;
 var map = new mapboxgl.Map({
@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
 });
 
 map.on("load", function () {
-  console.log(thisPosts);
+  console.log(thisIdeas);
   // Add a new source from our GeoJSON data and
   // set the 'cluster' option to true. GL-JS will
   // add the point_count property to your source data.
@@ -17,7 +17,7 @@ map.on("load", function () {
     type: "geojson",
     // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
     // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
-    data: thisPosts,
+    data: thisIdeas,
     cluster: true,
     clusterMaxZoom: 14, // Max zoom to cluster points on
     clusterRadius: 50, // Radius of each cluster when clustering points (defaults to 50)
